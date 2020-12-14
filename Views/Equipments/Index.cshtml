@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Lab6.Models.Equipments>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Таблиця Обладнання</h1>
+
+<p>
+    @Html.ActionLink("Створити", "CreateEquip", "Equipments")
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ID_Equipment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nameEquipment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Appointment)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ID_Equipment)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nameEquipment)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Appointment)
+                </td>
+                <td>
+                    @Html.ActionLink("Редагувати", "EditEquip/" + item.ID_Equipment, "Equipments") |
+                    @Html.ActionLink("Видалити", "DeleteEquip/" + item.ID_Equipment, "Equipments")
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

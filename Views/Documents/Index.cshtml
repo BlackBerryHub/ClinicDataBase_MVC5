@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Lab6.Models.Documents>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Таблиця Документи</h1>
+
+<p>
+    @Html.ActionLink("Створити", "CreateDoc", "Documents")
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ID_Documents)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ID_Equipment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ID_Procedure)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ID_Documents)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ID_Equipment)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ID_Procedure)
+                </td>
+                <td>
+                    @Html.ActionLink("Редагувати", "EditDoc/" + item.ID_Documents, "Documents") |
+                    @Html.ActionLink("Видалити", "DeleteDoc/" + item.ID_Documents, "Documents")
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Lab6.Models.Pacients>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Таблиця Направлення</h1>
+
+<p>
+    @Html.ActionLink("Створити", "CreatePacients", "Pacients")
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ID_Pacinents)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ID_Pacinents)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                    @Html.ActionLink("Редагувати", "EditPacients/" + item.ID_Pacinents, "Pacients") |
+                    @Html.ActionLink("Видалити", "DeletePacients/" + item.ID_Pacinents, "Pacients")
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

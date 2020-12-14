@@ -1,0 +1,50 @@
+﻿@model Lab6.Models.Equipments
+
+@{
+    ViewBag.Title = "EditEquip";
+}
+
+<h2>EditEquipments</h2>
+
+
+@using (Html.BeginForm("EditEquip", "Equipments", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <div class="validation" asp-validation-summary="ModelOnly"></div>
+    <div class="form-horizontal">
+        <h4>Equipments</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-success" })
+        @Html.HiddenFor(model => model.ID_Equipment)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.nameEquipment, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.nameEquipment, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.nameEquipment, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Appointment, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Appointment, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Appointment, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Зберегти" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Повернутись до списку", "Index")
+</div>
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

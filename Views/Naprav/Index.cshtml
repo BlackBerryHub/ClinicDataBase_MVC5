@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Lab6.Models.Naprav>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Таблиця Направлення</h1>
+
+<p>
+    @Html.ActionLink("Створити", "CreateNaprav", "Naprav")
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ID_Naprav)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ID_Pacients)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ID_Procedure)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ID_Naprav)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ID_Pacients)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ID_Procedure)
+                </td>
+                <td>
+                    @Html.ActionLink("Редагувати", "EditNaprav/" + item.ID_Naprav, "Naprav") |
+                    @Html.ActionLink("Видалити", "DeleteNaprav/" + item.ID_Naprav, "Naprav")
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

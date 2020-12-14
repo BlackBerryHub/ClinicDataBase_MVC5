@@ -1,0 +1,31 @@
+﻿@model Lab6.Models.Naprav
+
+@{
+    ViewBag.Title = "DeleteNaprav";
+}
+
+<h3>Видалити цей запис?</h3>
+<div>
+    <h4>Naprav</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ID_Pacients)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ID_Procedure)
+        </dd>
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Видалити" class="btn btn-default" />
+        </div>
+    }
+</div>
+<div>
+    @Html.ActionLink("Повернутись до списку", "Index")
+</div>

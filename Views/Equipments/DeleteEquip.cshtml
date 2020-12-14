@@ -1,0 +1,40 @@
+﻿@model Lab6.Models.Equipments
+
+@{
+    ViewBag.Title = "DeleteEquip";
+}
+
+<h3>Видалити цей запис з таблиці Обладнання?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nameEquipment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nameEquipment)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Appointment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Appointment)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Видалити" class="btn btn-default" />
+        </div>
+    }
+</div>
+<div>
+    @Html.ActionLink("Повернутись до списку", "Index")
+</div>
